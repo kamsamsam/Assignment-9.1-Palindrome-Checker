@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Author: Mahmoud Hamadah -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Heading of the page -->
+        <h1>Palindrome Checker</h1>
+        <!-- Input field for entering words or phrases -->
+        <input type="text" id="palindromeInput" placeholder="Enter a word or phrase">
+        <!-- Button to trigger palindrome check -->
+        <button onclick="checkPalindrome()">Check</button>
+        <!-- Area to display results -->
+        <p id="result"></p>
+    </div>
+
+    <!-- JavaScript to handle the palindrome checking -->
+    <script>
+        // Function to check if the input string is a palindrome
+        function checkPalindrome() {
+            // Retrieve the user's input
+            var str = document.getElementById('palindromeInput').value;
+            // Normalize the string: remove non-alphanumeric characters and convert to lower case
+            var normalizedStr = str.replace(/[\W_]/g, '').toLowerCase();
+            // Check if the normalized string is a palindrome
+            var reversedStr = normalizedStr.split('').reverse().join('');
+            // Display the result
+            document.getElementById('result').innerText = normalizedStr === reversedStr ?
+                `"${str}" is a palindrome.` : `"${str}" is not a palindrome.`;
+            // Clear the input field for the next input
+            document.getElementById('palindromeInput').value = '';
+        }
+    </script>
+</body>
+</html>
